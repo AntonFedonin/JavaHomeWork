@@ -34,6 +34,30 @@ public class Task2 {
         return revers(str.substring(1)) + str.charAt(0);
     }
 
+    static StringBuilder getLine() {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < 10000; i++) {
+            str.append("=");
+        }
+        return str;
+    }
+
+    static long getTime(String str) {
+        long start, end;
+        for (int i = 0; i < 10001; i++) {
+            str += "=";
+        }
+        start = System.currentTimeMillis();
+
+        str.replace("=", "равно");
+
+        end = System.currentTimeMillis();
+
+        return end - start;
+    }
+
+    
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Введите тект");
@@ -42,24 +66,28 @@ public class Task2 {
         String str2 = GetValue(input);
         GetLittleWindow(str, str2);
         if (isRotation(str, str2))
-            System.out.println("Являются");
+        System.out.println("Являются");
         else
-            System.out.println("Не являются");
+        System.out.println("Не являются");
         System.out.println(revers(str));
         String nums1 = "3";
         String nums2 = "56";
         StringBuilder res = new StringBuilder();
         res.append(nums1 + "+" + nums2 + "=" + "59" + " " + nums1 + "-" + nums2 + "="
-                + "-59" + " " + nums1 + "*"
-                + nums2 + "=" + "168");
+        + "-59" + " " + nums1 + "*"
+        + nums2 + "=" + "168");
         System.out.println(res);
-        
+
         res.insert(res.indexOf("="), "Равно");
         res.deleteCharAt(res.indexOf("="));
         System.out.println(res);
         res.replace(res.indexOf("="), res.indexOf("=") + 1, "Равно");
         res.replace(res.indexOf("="), res.indexOf("=") + 1, "Равно");
         System.out.println(res);
+
+        String timeTest = "";
+        
+        System.out.println(getTime(timeTest));
         
     }
 }
